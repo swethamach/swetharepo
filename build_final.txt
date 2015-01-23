@@ -106,12 +106,12 @@ do
 		fi
 		echo "Done with the script" >> $LOG_FILE
 		exit 1
-    fi
-#done < c:/swethaw/abc
+    # fi
+# done < c:/swethaw/abc
 done
 
 if [ $DEV_FOUND == "NO" ]; then
 	echo "Dev branch $1 is not found" >>$LOG_FILE
-fi
+fi 
 echo "Bye" >> $LOG_FILE
 
