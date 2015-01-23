@@ -6,7 +6,7 @@ if [ "x$1" = "x" -o "x$2" = "x" -o "x$3" = "x" ];then
 fi
 
 today=`date +%Y-%m-%d_%H%M%S`
-LOG_FILE=/opt/buildlog/merge_$today.log
+LOG_FILE=c:/swetha1/merge_$today.log
 echo "Start of Build...." >> $LOG_FILE
 
 for branch in $(git branch)
