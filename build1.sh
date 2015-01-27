@@ -6,7 +6,7 @@ if [ "x$1" = "x" -o "x$2" = "x" -o "x$3" = "x" ];then
 fi
 
 today=`date +%Y-%m-%d_%H%M%S`
-LOG_FILE=C:\Users\swetha\Desktop\swetharepo\logs/merge_$1_$2_$today.log
+LOG_FILE=C:\Users\swetha\Desktop\swetharepo\logs\merge_$1_$2_$today.log
 echo "Start of Build...." >> $LOG_FILE
 
 DEV_FOUND="NO"
