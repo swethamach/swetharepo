@@ -6,15 +6,20 @@ if [ "x$1" = "x" -o "x$2" = "x" -o "x$3" = "x" ];then
 fi
 
 today=`date +%Y-%m-%d_%H%M%S`
-LOG_FILE=C:\Users\swetha\Desktop\swetharepo\logs\merge_$1_$2_$today.log
+LOG_FILE=c:/swethaw/merge_$1_$2_$today.log
 echo "Start of Build...." >> $LOG_FILE
 
 DEV_FOUND="NO"
 
+DEV="remotes/origin/$1"
+echo "$DEV"
+REL="remotes/origin/$2"
+echo "$REL"
+
 for branch in $(git branch -a | sed 's/* //g' | sed 's/  //g')
 do
 	echo "Checking $branch for matching dev branch $1" >>$LOG_FILE   # THIS print can be deleted later
-	if [ "$1" = "$branch" ]; then
+	if [ "$DEV" = "$branch" ]; then
 		DEV_FOUND="YES"
 		echo "Dev branch $1 found in the branches" >>$LOG_FILE
 		git checkout $1
@@ -30,7 +35,7 @@ do
 				for relbranch in $(git branch -a | sed 's/* //g' | sed 's/  //g')
 				do
 					echo "Checking $relbranch for matching release branch $2" >>$LOG_FILE # THIS print can be deleted later
-					if [ "$2" = "$relbranch" ] ; then
+					if [ "$REL" = "$relbranch" ] ; then
 						RELEASE_FOUND="YES"
 						echo "Release branch $2 found. Checking out to release branch" >>$LOG_FILE
 						git checkout $2
